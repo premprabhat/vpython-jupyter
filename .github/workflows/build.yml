@@ -85,10 +85,15 @@ jobs:
            ${{ env.img }} \
            bash -exc '${{ env.py }} -m venv .env && \
            source .env/bin/activate && \
+           echo -e "\e[1;34m Install dependencies \e[0m" && \
            python -m pip install --upgrade pip && \
            pip install pytest Cython wheel && \
+           echo -e "\e[1;34m Build wheel \e[0m" && \
            python setup.py bdist_wheel && \
+           echo -e "\e[1;34m Install vpython \e[0m" && \
            pip install . && \
+           echo -e "\e[1;34m Run tests \e[0m" && \
            pytest vpython && \
+           echo -e "\e[1;34m Import test \e[0m" && \
            python -c "import vpython" && \
            deactivate'
