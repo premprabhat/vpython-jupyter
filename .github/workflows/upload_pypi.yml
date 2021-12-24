@@ -1,4 +1,4 @@
-name: Upload Python wheel to PyPI
+name: Upload Python wheel to PyPI.
 
 on: push
 
